@@ -1,0 +1,17 @@
+.navigation{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li{
+    margin-inline: 1rem;
+}

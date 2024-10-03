@@ -1,0 +1,102 @@
+<!-- <div class=" text-primary" style="height: 90vh">
+    <h1>
+        MANAGE TRANSACTIONS
+    </h1>
+    <p>Create new transactions and visit recent transactions !!</p>
+
+</div> -->
+
+<div class=" mt-4 main  text-primary">
+  
+    <!-- Page Heading -->
+    <div class="row mb-4 head">
+      <div class="col">
+        <h1 > Manage Transaction </h1>
+        <p> Add new transaction and revisit your recent transaction</p>
+      </div>
+      <hr>
+    </div>
+    
+    <!-- Transaction Form and Recent Transactions -->
+    <div class="row rows">
+      
+      <!-- Left Side: Transaction Form -->
+      <div class="col-md-6 mb-4">
+        <h3>Create New Transaction</h3>
+        <form>
+          <!-- Transaction Type -->
+          <div class="mb-3">
+            <label for="transactionType" class="form-label">Transaction Type</label>
+            <select class="form-select" id="transactionType">
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </div>
+          
+          <!-- Amount -->
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter amount">
+          </div>
+  
+          <!-- Category -->
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category">
+              <option value="food">Food</option>
+              <option value="utilities">Utilities</option>
+              <!-- Add more categories here -->
+            </select>
+          </div>
+  
+          <!-- Date -->
+          <div class="mb-3">
+            <label for="transactionDate" class="form-label">Transaction Date</label>
+            <input type="date" class="form-control" id="transactionDate">
+          </div>
+  
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Add Transaction</button>
+        </form>
+      </div>
+
+
+  
+      <!-- Right Side: Recent Transactions List -->
+      <div class="col-md-6 mb-4 rows ">
+        <h3>Recent Transactions</h3>
+        <!-- Transaction List -->
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Transaction 1
+            <span class="badge bg-primary rounded-pill">$100</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Transaction 2
+            <span class="badge bg-primary rounded-pill">$50</span>
+          </li>
+          <!-- More transactions -->
+        </ul>
+  
+        <!-- Pagination -->
+        <nav class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+    </div>
+  </div>
+  

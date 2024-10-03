@@ -1,0 +1,17 @@
+.head{
+    padding-left:2rem;
+}
+
+.main{
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+}
+
+.columns{
+    margin-left: 4rem ;
+}
+
+.rows{
+    padding-inline: 2rem;
+}

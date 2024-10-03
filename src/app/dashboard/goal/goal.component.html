@@ -1,0 +1,110 @@
+<div class=" mt-4 main  text-primary">
+  
+    <!-- Page Heading -->
+    <div class="row mb-4 head">
+      <div class="col">
+        <h1 > Set Goals </h1>
+        <p> Set Goals for future, Save willfully!!!</p>
+      </div>
+      <hr>
+    </div>
+    
+    <!-- Transaction Form and Recent Transactions -->
+    <div class="row rows">
+      
+      <!-- Left Side: Transaction Form -->
+      <div class="col-md-6 mb-4">
+        <h3>Add New Goals</h3>
+        <form>
+         
+          <!-- Amount -->
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter target amount">
+          </div>
+
+          <div class="mb-3">
+            <label for="Textarea">Description</label>
+            <textarea class="form-control" placeholder="Add note with your budget" id="floatingTextarea"></textarea>
+          </div>
+  
+          <!-- Date -->
+          <div class="mb-3">
+            <label for="GoalDuration" class="form-label">Goal Duration</label>
+            <input type="date" class="form-control" id="transactionDate">
+          </div>
+  
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Add Goal</button>
+        </form>
+      </div>
+
+
+  
+      <!-- Right Side: Recent Transactions List -->
+      <div class="col-md-6 mb-4 rows ">
+        <h3>Goal Progress</h3>
+        <!-- Transaction List -->
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+           
+                <div class="card-body">
+                  <!-- Goal Heading -->
+                  <h5 class="card-title">Goal: Save for a Vacation</h5>
+              
+                  <!-- Goal Description -->
+                  <p class="card-text">Saving for a trip to Hawaii. Target to save $5000 by the end of the year.</p>
+              
+                  <!-- Target and Achieved Amounts -->
+                  <div class="d-flex justify-content-between">
+                    <span>Target: $5000</span>
+                    <span>Achieved: $2500</span>
+                  </div>
+              
+                  <!-- Progress Percentage -->
+                  <div class="d-flex justify-content-between align-items-center mt-2">
+                    <span>50% Achieved</span>
+                  </div>
+              
+                  <!-- Progress Bar -->
+                  <div class="progress mt-2">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                  </div>
+              
+                  <!-- Additional Information -->
+                  <div class="mt-2">
+                    <p class="card-text text-muted">Keep going! You're halfway to your goal.</p>
+                  </div>
+                </div>
+        
+              
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Transaction 2
+            <span class="badge bg-primary rounded-pill">$50</span>
+          </li>
+          <!-- More transactions -->
+        </ul>
+  
+        <!-- Pagination -->
+        <!-- <nav class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link">Next</a>
+            </li>
+          </ul>
+        </nav> -->
+      </div>
+      
+    </div>
+  </div>
+  
