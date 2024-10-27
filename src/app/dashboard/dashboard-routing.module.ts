@@ -5,6 +5,7 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { MainComponent } from './main/main.component';
 import { BudgetComponent } from './budget/budget.component';
 import { GoalComponent } from './goal/goal.component';
+import { CreatePopupComponent } from './create-popup/create-popup.component';
 const routes: Routes = [
    {
       path: '',
@@ -14,6 +15,11 @@ const routes: Routes = [
             path: '',
             redirectTo : 'home',
             pathMatch: 'full'
+         },
+
+         {
+            path: 'create',
+            component : CreatePopupComponent,
          },
 
          {

@@ -1,0 +1,281 @@
+<!-- =====================Navigation======================== -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div
+      class="collapse navbar-collapse align-items-center justify-content-center"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav al">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="createForm('createTransaction')"
+        >
+          <i class="material-icons">add </i>
+          transaction
+        </a>
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="createForm('createBudget')"
+        >
+          <i class="material-icons">add </i>
+          Budget
+        </a>
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="createForm('createGoal')"
+        >
+          <i class="material-icons">add </i>
+          Goal
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div
+  *ngIf="alertVisible"
+  class="alert alert-success alert-dismissible fade show top-alert"
+  role="alert"
+>
+  You have successfully registered!
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="closeAlert()"
+  ></button>
+</div>
+
+
+
+
+
+
+<!-- ====================== createTransaction ============================== -->
+<ng-container *ngIf="activeForm === 'createTransaction'">
+ 
+  <div class="text-primary container">
+    <div class="Form">
+      <h3>Create New Transaction</h3>
+      <form [formGroup]="transationForm">
+        <div class="mb-3">
+          <label for="transactionType" class="form-label"
+            >Transaction Type</label
+          >
+          <select class="form-select" id="type" formControlName="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+
+        <!-- Amount -->
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            formControlName="amount"
+            placeholder="Enter amount"
+          />
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select" id="category" formControlName="category">
+            <option *ngFor="let item of categories" [value]="item._id">
+              {{ item.name }}
+            </option>
+          </select>
+
+          <form [formGroup]="CategoryForm"  *ngIf="asideVisible"> 
+            <div class="mb-3">
+              <label for="name" class="form-label"> Category Name</label>
+              <input
+                type="string"
+                class="form-control"
+                formControlName="name"
+                id="name"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="createCategory()"
+            >
+              Add category
+            </button>
+          </form>
+
+          <a
+            class="nav-link align-items-center justify-content-center"
+            (click)="showAside()"
+          >
+            <i class="material-icons">add</i>
+            create new Category
+          </a>
+        </div>
+
+        <div class="mb-3">
+          <label for="Textarea">Description</label>
+          <textarea
+            class="form-control"
+            formControlName="description"
+            id="description"
+            placeholder="Add note with your budget"
+            id="Textarea"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="createTransaction()"
+        >
+          Add Transaction
+        </button>
+      </form>
+    </div>
+  </div>
+</ng-container>
+
+
+
+
+
+
+
+<!-- ====================== createBudget ============================== -->
+
+<ng-container *ngIf="activeForm === 'createBudget'">
+  <div class="container">
+    <h3>Create New Budget</h3>
+    <form [formGroup]="BudgetForm">
+      <!-- Header  -->
+      <div class="mb-3">
+        <label for="heading" class="form-label">Heading</label>
+        <input
+          type="string"
+          class="form-control"
+          formControlName="name"
+          id="name"
+          placeholder="Add heading for your Budget"
+        />
+      </div>
+      <!-- Amount -->
+      <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="amount"
+          id="amount"
+          placeholder="Enter amount"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="Textarea">Description</label>
+        <textarea
+          class="form-control"
+          placeholder="Add note with your budget"
+          formControlName="description"
+          id="description"
+        ></textarea>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select" id="category" formControlName="category">
+          <option *ngFor="let item of categories" [value]="item._id">
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Date -->
+      <div class="mb-3">
+        <label for="transactionDate" class="form-label"
+          >Budget expiry Date</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          formControlName="expiry"
+          id="expiry"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" (click)="createBudget()">
+        Add Budget
+      </button>
+    </form>
+  </div>
+</ng-container>
+
+
+
+
+
+
+<!-- ====================== createGoal ============================== -->
+
+<ng-container *ngIf="activeForm === 'createGoal'">
+  <div class="container">
+    <h3>Add New Goals</h3>
+    <form [formGroup]="GoalForms" (ngSubmit)="createGoal()">
+      <!-- Goal -->
+      <div class="mb-3">
+        <label for="Goal" class="form-label">Goal</label>
+        <input
+          type="string"
+          class="form-control"
+          id="Goalname"
+          formControlName="summary"
+          placeholder="mention your goal"
+        />
+      </div>
+      <!-- Amount -->
+      <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input
+          type="number"
+          class="form-control"
+          id="amount"
+          formControlName="amount"
+          placeholder="Enter target amount"
+        />
+      </div>
+
+      <!-- Date -->
+      <div class="mb-3">
+        <label for="GoalDuration" class="form-label">Goal Duration</label>
+        <input
+          type="date"
+          class="form-control"
+          formControlName="expiry"
+          id="expiry"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Add Goal</button>
+    </form>
+  </div>
+</ng-container>
+
+<ng-container
+  *ngIf="
+    activeForm !== 'createTransaction' &&
+    activeForm !== 'createBudget' &&
+    activeForm !== 'createGoal'
+  "
+>
+  <div class="image"></div>
+</ng-container>

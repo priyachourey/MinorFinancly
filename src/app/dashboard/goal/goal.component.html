@@ -1,93 +1,104 @@
-<div class=" mt-4 main  text-primary">
-  
-    <!-- Page Heading -->
-    <div class="row mb-4 head">
-      <div class="col">
-        <h1 > Set Goals </h1>
-        <p> Set Goals for future, Save willfully!!!</p>
-      </div>
-      <hr>
+<div class="mt-4 main text-primary">
+  <!-- Page Heading -->
+  <div class="row mb-4 head">
+    <div class="col">
+      <h1>Set Goals</h1>
+      <p>Set Goals for future, Save willfully!!!</p>
     </div>
-    
-    <!-- Transaction Form and Recent Transactions -->
-    <div class="row rows">
-      
-      <!-- Left Side: Transaction Form -->
-      <div class="col-md-6 mb-4">
-        <h3>Add New Goals</h3>
-        <form>
-         
-          <!-- Amount -->
-          <div class="mb-3">
-            <label for="amount" class="form-label">Amount</label>
-            <input type="number" class="form-control" id="amount" placeholder="Enter target amount">
-          </div>
+    <hr />
+  </div>
 
-          <div class="mb-3">
-            <label for="Textarea">Description</label>
-            <textarea class="form-control" placeholder="Add note with your budget" id="floatingTextarea"></textarea>
+  <div class="rows">
+    <div class="rows">
+      <h3>Ongoing Goals list</h3>
+
+      <div class="card m-3" *ngFor="let items of goals ; let i = index">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link justify-content-between"
+              style="width: 100%;"
+              data-toggle="collapse"
+              data-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+              (click)="toggleCard(i)"
+              (click)="getGoalProgress(items._id, i)"
+            >
+              <div
+                class="card-header d-flex justify-content-between align-items-center " 
+              >
+                <h5 class="card-title">{{items.summary}}</h5>
+              </div>
+            </button>
+          </h5>
+        </div>
+
+        <div
+          id="collapseOne"
+          class="collapse show"
+          [ngClass]="{ 'collapsed': activeCardIndex !== i }"
+          aria-labelledby="headingOne"
+          data-parent="#accordion"
+          
+        >
+          <div class="card-body">
+            <p class="card-text"></p>
+
+            <!-- Budget Target and Achieved -->
+            <ul class="list-group mb-3">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Alloted Amount:
+                <span>₹{{items.amount}}</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Amount Spent:
+                <span>₹{{items.totalincome}}</span>
+              </li>
+            </ul>
+
+            <!-- Progress Bar with Percentage -->
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                [ngStyle]="{ width: items.goalprogress + '%' }"
+               [attr.aria-valuenow]="items.goalprogress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{items.goalprogress}}%
+              </div>
+            </div>
+
+            <!-- Show the Difference (Remaining or Overspent) -->
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="text-muted mb-0">
+                Remaining Amount: <strong>{{items.remainingamount}}</strong>
+              </p>
+
+              <p class="text-muted mb-0">
+                Created At: <strong>12/11/2024</strong>
+              </p>
+
+              <p class="text-muted mb-0">
+                Expiry date : <strong> 12/12/2025</strong>
+              </p>
+            </div>
           </div>
-  
-          <!-- Date -->
-          <div class="mb-3">
-            <label for="GoalDuration" class="form-label">Goal Duration</label>
-            <input type="date" class="form-control" id="transactionDate">
-          </div>
-  
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary">Add Goal</button>
-        </form>
+        </div>
       </div>
 
+      <!-- pagination -->
+    <!-- </div> -->
+  <!-- </div> -->
 
-  
-      <!-- Right Side: Recent Transactions List -->
-      <div class="col-md-6 mb-4 rows ">
-        <h3>Goal Progress</h3>
-        <!-- Transaction List -->
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-           
-                <div class="card-body">
-                  <!-- Goal Heading -->
-                  <h5 class="card-title">Goal: Save for a Vacation</h5>
-              
-                  <!-- Goal Description -->
-                  <p class="card-text">Saving for a trip to Hawaii. Target to save $5000 by the end of the year.</p>
-              
-                  <!-- Target and Achieved Amounts -->
-                  <div class="d-flex justify-content-between">
-                    <span>Target: $5000</span>
-                    <span>Achieved: $2500</span>
-                  </div>
-              
-                  <!-- Progress Percentage -->
-                  <div class="d-flex justify-content-between align-items-center mt-2">
-                    <span>50% Achieved</span>
-                  </div>
-              
-                  <!-- Progress Bar -->
-                  <div class="progress mt-2">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                  </div>
-              
-                  <!-- Additional Information -->
-                  <div class="mt-2">
-                    <p class="card-text text-muted">Keep going! You're halfway to your goal.</p>
-                  </div>
-                </div>
-        
-              
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Transaction 2
-            <span class="badge bg-primary rounded-pill">$50</span>
-          </li>
-          <!-- More transactions -->
-        </ul>
-  
-        <!-- Pagination -->
-        <!-- <nav class="mt-4">
+      <!-- Pagination -->
+      <!-- <nav class="mt-4">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">
               <a class="page-link">Previous</a>
@@ -103,8 +114,6 @@
             </li>
           </ul>
         </nav> -->
-      </div>
-      
     </div>
   </div>
-  
+</div>

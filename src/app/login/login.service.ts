@@ -8,14 +8,14 @@ import { Observable, catchError } from 'rxjs';
 })
 export class LoginService {
 
-  // constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  // CreateAccount(reqestobj : RegisterInterface) : Observable<any> {
-  //   return this.httpClient.post('http://localhost:8000/auth/register', reqestobj, {responseType: 'text'})
-  // } 
+  CreateAccount(reqestobj : RegisterInterface) : Observable<any> {
+    return this.httpClient.post('http://localhost:8000/auth/register', reqestobj, {responseType: 'text'})
+  } 
 
-  // login(reqestobj:LoginInterface):Observable<any>{
-  //   return this.httpClient.post('http://localhost:8000/auth/login',reqestobj,{responseType: 'text'})
-  // }
+  login(reqestobj:LoginInterface):Observable<any>{
+    return this.httpClient.post('http://localhost:8000/auth/login',reqestobj,{responseType: 'text'})
+  }
 
 }

@@ -14,14 +14,14 @@ export class LoginComponent {
   password = '';
 
   login(){
-    // let reqObj: LoginInterface={
-    //   username: this.username,
-    //   password: this.password
-    // }
-    // this.Loginservices .login(reqObj).subscribe(value=>{
-    //   window.localStorage.setItem("token",value)
-    //   this.router.navigate(['dashboard']);
-    // })
-    this.router.navigate(['dashboard']);
+    let reqObj: LoginInterface={
+      username: this.username,
+      password: this.password
+    }
+    this.Loginservices .login(reqObj).subscribe(value=>{
+      window.localStorage.setItem("token",value)
+      this.router.navigate(['dashboard']);
+    })
+    // this.router.navigate(['dashboard']);
   }
 }

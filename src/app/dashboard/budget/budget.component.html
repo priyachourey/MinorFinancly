@@ -1,74 +1,106 @@
-<div class=" mt-4 main  text-primary">
-  
-    <!-- Page Heading -->
-    <div class="row mb-4 head">
-      <div class="col">
-        <h1 > Create budget </h1>
-        <p> Add Budgets to keep track of your expenses for perticular category</p>
-      </div>
-      <hr>
+<div class="mt-4 main text-primary">
+  <!-- Page Heading -->
+  <div class="row mb-4 head">
+    <div class="col">
+      <h1>Create budget</h1>
+      <p>Add Budgets to keep track of your expenses for perticular category</p>
     </div>
-    
-    <!-- Transaction Form and Recent Transactions -->
-    <div class="row rows">
-      
-      <!-- Left Side: Transaction Form -->
-      <div class="col-md-6 mb-4">
-        <h3>Create New Budget</h3>
-        <form>
-          
-          <!-- Amount -->
-          <div class="mb-3">
-            <label for="amount" class="form-label">Amount</label>
-            <input type="number" class="form-control" id="amount" placeholder="Enter amount">
-          </div>
+    <hr />
+  </div>
 
-          <div class="mb-3">
-            <label for="Textarea">Description</label>
-            <textarea class="form-control" placeholder="Add note with your budget" id="floatingTextarea"></textarea>
+  <div class="rows">
+    <div class="rows">
+      <h3>Ongoing Budget list</h3>
+
+      <div class="card m-3" *ngFor="let items of budgets ; let i = index">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link justify-content-between"
+              style="width: 100%;"
+              data-toggle="collapse"
+              data-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+              (click)="toggleCard(i)"
+              (click)="getBudgetProgress(items._id, i)"
+            >
+              <div
+                class="card-header d-flex justify-content-between align-items-center " 
+              >
+                <h5 class="card-title">{{items.name}}</h5>
+                <!-- Indicator -->
+                <span class="badge bg-success" id="budget-status"
+                  >Under Budget</span
+                >
+              </div>
+            </button>
+          </h5>
+        </div>
+
+        <div
+          id="collapseOne"
+          class="collapse show"
+          [ngClass]="{ 'collapsed': activeCardIndex !== i }"
+          aria-labelledby="headingOne"
+          data-parent="#accordion"
+          
+        >
+          <div class="card-body">
+            <p class="card-text"></p>
+
+            <!-- Budget Target and Achieved -->
+            <ul class="list-group mb-3">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                <p>{{items.description}}</p>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Alloted Amount:
+                <span>₹{{items.amount}}</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Amount Spent:
+                <span>₹{{items.totalexpense}}</span>
+              </li>
+            </ul>
+
+            <!-- Progress Bar with Percentage -->
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                [ngStyle]="{ width: items.remainingbudgetPercent + '%' }"
+               [attr.aria-valuenow]="items.remainingbudgetPercent"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{items.remainingbudgetPercent}}%
+              </div>
+            </div>
+
+            <!-- Show the Difference (Remaining or Overspent) -->
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="text-muted mb-0">
+                Remaining Amount: <strong>{{items.remainingAmount}}</strong>
+              </p>
+            </div>
           </div>
-  
-          <!-- Category -->
-          <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
-            <select class="form-select" id="category">
-              <option value="food">Food</option>
-              <option value="utilities">Utilities</option>
-              <!-- Add more categories here -->
-            </select>
-          </div>
-  
-          <!-- Date -->
-          <div class="mb-3">
-            <label for="transactionDate" class="form-label">Budget expiry Date</label>
-            <input type="date" class="form-control" id="transactionDate">
-          </div>
-  
-          <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary">Add Budget</button>
-        </form>
+        </div>
       </div>
 
+      <!-- pagination -->
+    </div>
+  </div>
+</div>
 
-  
-      <!-- Right Side: Recent Transactions List -->
-      <div class="col-md-6 mb-4 rows ">
-        <h3> Ongoing Budget list</h3>
-        <!-- Transaction List -->
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Transaction 1
-            <span class="badge bg-primary rounded-pill">$100</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Transaction 2
-            <span class="badge bg-primary rounded-pill">$50</span>
-          </li>
-          <!-- More transactions -->
-        </ul>
-  
-        <!-- Pagination -->
-        <nav class="mt-4">
+<!-- Pagination -->
+      <!-- <nav class="mt-4">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">
               <a class="page-link">Previous</a>
@@ -83,8 +115,4 @@
               <a class="page-link">Next</a>
             </li>
           </ul>
-        </nav>
-      </div>
-      
-    </div>
-  </div>
+        </nav> -->

@@ -15,3 +15,7 @@
 .rows{
     padding-inline: 2rem;
 }
+
+.collapsed{
+    display: none;
+}

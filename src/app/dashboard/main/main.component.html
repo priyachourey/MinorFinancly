@@ -1,25 +1,49 @@
-<nav class="navbar  bg-primary">
-    <div class="navigation" id="navbarNav">
-        <h1 class="text-white">financly</h1>
-      <ul class="navbar-nav ">
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink='home'>HOME</a>
+<nav class=" d-none d-md-block bg-primary  sidebar  justify-content-center align-items-center">
+
+    <div class="sidebar-sticky justify-content-center align-items-center">
+      <h1 class="text-white">financly</h1>
+    
+      <ul class="nav flex-column">
+
+        <li class="nav-item"  >
+          <a class="nav-link " routerLink='home' routerLinkActive="active" >
+            <i class="material-icons">home </i>
+            HOME
+          </a>
+        </li>
+        <li class="nav-item" > 
+          <a class="nav-link  " routerLink='create'routerLinkActive="active" >
+            <i class="material-icons">add </i>
+            CREATE
+          </a>
+        </li>
+
+        <li class="nav-item  " >
+          <a class="nav-link " routerLink='/dashboard/transaction' routerLinkActive="active" >
+            <i class="material-icons">format_list_bulleted </i>
+            TRANSACTIONS
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink='/dashboard/transaction'>TRANSACTIONS</a>
+          <a class="nav-link " routerLink='/dashboard/budget' routerLinkActive="active">
+            <i class="material-icons">attach_money  </i>
+            BUDGETS
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" routerLink='/dashboard/budget'>BUDGETS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white"routerLink='/dashboard/goal'>GOALS</a>
+        <li class="nav-item" >
+          <a class="nav-link " routerLink='/dashboard/goal' routerLinkActive="active">
+            <i class="material-icons">flag_2 </i>
+            GOALS
+          </a>
         </li>
       </ul>
     </div>
   </nav>
-  <div>
+
+  <main  class="  main-content">
     <router-outlet>
- 
+
     </router-outlet>
+  </main>
+
     
-  </div>
