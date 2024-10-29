@@ -132,4 +132,14 @@ export class HttpService {
     );
     return category;
   }
+
+  GetStatus(): Observable<any>{
+    const status = this.httpClient.get<any>(
+      'http://localhost:8000/categories/category',
+      { responseType: 'json', headers: this.headers}
+    );
+    return status
+  }
+
+
 }

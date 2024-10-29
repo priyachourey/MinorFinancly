@@ -10,6 +10,7 @@ import { GoalComponent } from './goal/goal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePopupComponent } from './create-popup/create-popup.component';
 import { TransactioncardComponent } from './transactioncard/transactioncard.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { TransactioncardComponent } from './transactioncard/transactioncard.comp
     BudgetComponent,
     GoalComponent,
     CreatePopupComponent,
-    TransactioncardComponent
+    TransactioncardComponent,
+    PieChartComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     DashboardRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 
   
