@@ -11,5 +11,6 @@ export interface TransactionRes{
     amount ?: Number | null,
     description ?: string | null,
     category ?: string | null,
-    type ?: string | null
+    type ?: string | null,
+    createdAt?: string | null
 }

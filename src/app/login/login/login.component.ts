@@ -22,6 +22,6 @@ export class LoginComponent {
       window.localStorage.setItem("token",value)
       this.router.navigate(['dashboard']);
     })
-    // this.router.navigate(['dashboard']);
+   
   }
 }

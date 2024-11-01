@@ -16,7 +16,8 @@ export class TransactioncardComponent implements OnInit {
         amount : null,
         description :'',
         category : null,
-        type: null
+        type: null,
+        createdAt: null
        }
     }
 

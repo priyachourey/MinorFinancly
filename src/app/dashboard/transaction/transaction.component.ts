@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TransactionRes } from '../models/transaction';
-import { ExtractokenService } from '../service/extractoken.service';
 import { HttpService } from '../service/htttpservice.service';
 @Component({
   selector: 'app-transaction',

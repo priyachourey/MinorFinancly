@@ -10,7 +10,7 @@
 
   <div class="rows">
     <div class="rows">
-      <h3>Ongoing Goals list</h3>
+      <h3>Ongoing Budget list</h3>
 
       <div class="card m-3" *ngFor="let items of goals ; let i = index">
         <div class="card-header" id="headingOne">
@@ -29,6 +29,9 @@
                 class="card-header d-flex justify-content-between align-items-center " 
               >
                 <h5 class="card-title">{{items.summary}}</h5>
+                <span class="badge bg-success" id="budget-status"
+                  >Click for Update</span
+                >
               </div>
             </button>
           </h5>
@@ -43,9 +46,7 @@
           
         >
           <div class="card-body">
-            <p class="card-text"></p>
-
-            <!-- Budget Target and Achieved -->
+          
             <ul class="list-group mb-3">
               <li
                 class="list-group-item d-flex justify-content-between align-items-center"
@@ -66,7 +67,7 @@
               <div
                 class="progress-bar bg-warning"
                 role="progressbar"
-                [ngStyle]="{ width: items.goalprogress + '%' }"
+                [ngStyle]="{ width: items.goalprogress+ '%' }"
                [attr.aria-valuenow]="items.goalprogress"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -80,20 +81,14 @@
               <p class="text-muted mb-0">
                 Remaining Amount: <strong>{{items.remainingamount}}</strong>
               </p>
-
-              <p class="text-muted mb-0">
-                Created At: <strong>12/11/2024</strong>
-              </p>
-
-              <p class="text-muted mb-0">
-                Expiry date : <strong> 12/12/2025</strong>
-              </p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- pagination -->
+    </div>
+  </div>
+</div>
+ <!-- pagination -->
     <!-- </div> -->
   <!-- </div> -->
 
@@ -114,6 +109,3 @@
             </li>
           </ul>
         </nav> -->
-    </div>
-  </div>
-</div>

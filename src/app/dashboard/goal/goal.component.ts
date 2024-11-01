@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../service/htttpservice.service';
 import { GoalRes } from '../models/goal';
-import { GoalProgress } from '../models/budgetGoalProgress';
 
 @Component({
   selector: 'app-goal',
@@ -22,10 +21,10 @@ export class GoalComponent {
 
 
     goals : GoalRes[]= [];
-    constructor(private httpService : HttpService , ){
+    constructor(private httpService : HttpService ){
         this.httpService.GetGoal().subscribe((value)=>{
           if(!value || value.length === 0 ){
-            console.log(value)
+            
              console.log("no goal yet");
           }else{
             this.goals = value;
