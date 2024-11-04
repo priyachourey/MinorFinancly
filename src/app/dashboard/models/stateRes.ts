@@ -1,4 +1,4 @@
 export interface statusRes{
-    _id : String,
+    _id : string,
     totalamount : number
 }

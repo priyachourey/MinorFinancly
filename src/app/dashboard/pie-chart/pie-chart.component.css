@@ -1,6 +1,7 @@
 div{
 
-    height: 50%;
+    height: 25rem;
+    width: 25rem;
     display: flex;
     justify-content: center;
     align-items: center;

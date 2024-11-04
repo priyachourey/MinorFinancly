@@ -1,4 +1,10 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+}
 
 p{  font-size: 1.2rem;
     margin: 0;

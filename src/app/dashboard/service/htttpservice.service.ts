@@ -135,7 +135,7 @@ export class HttpService {
 
   GetStatus(): Observable<any>{
     const status = this.httpClient.get<any>(
-      'http://localhost:8000/categories/category',
+      'http://localhost:8000/status/state',
       { responseType: 'json', headers: this.headers}
     );
     return status
