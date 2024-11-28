@@ -22,13 +22,10 @@ export class PieChartComponent implements  AfterViewInit {
   ngAfterViewInit(): void {
     this.httpService.GetStatus().subscribe((value)=>{
       this.status = value;
-      this.createChart(this.status); 
-      
+      this.createChart(this.status);  
     })
 
-    // this.httpService.GetCategoryById(this.status._id).subscribe(value =>{
-    //   this.categoryName = value.name
-    // })
+    
    
   }
 

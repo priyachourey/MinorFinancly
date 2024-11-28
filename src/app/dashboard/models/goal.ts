@@ -13,6 +13,7 @@ export interface GoalRes{
     username : String|null
     totalincome: number
     remainingamount : number
+    saving : number
     goalprogress : number
 
 }

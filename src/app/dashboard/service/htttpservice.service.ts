@@ -106,6 +106,8 @@ export class HttpService {
       'http://localhost:8000/manage/budget',
       { responseType: 'json', headers: this.headers, params:params }
     );
+
+    console.log(budgetProgress)
     return budgetProgress;
   }
 
@@ -118,6 +120,7 @@ export class HttpService {
       'http://localhost:8000/manage/goal',
       { responseType: 'json', headers: this.headers , params : params}
     );
+    console.log(goalProgress)
     return goalProgress;
   }
 
@@ -138,6 +141,7 @@ export class HttpService {
       'http://localhost:8000/status/state',
       { responseType: 'json', headers: this.headers}
     );
+    
     return status
   }
 
