@@ -11,6 +11,7 @@ import { RegisterInterface } from '../models/register';
 export class CreateaccountComponent {
   constructor(private router: Router, private Loginservice: LoginService) { }
   username = '';
+  email = ''
   password = '';
   confirmpassword = '';
 
@@ -36,6 +37,7 @@ export class CreateaccountComponent {
   register() {
     let reqObj: RegisterInterface = {
       username: this.username,
+      email : this.email,
       password: this.password
     }
 

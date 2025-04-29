@@ -5,6 +5,7 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { MainComponent } from './main/main.component';
 import { BudgetComponent } from './budget/budget.component';
 import { GoalComponent } from './goal/goal.component';
+import { AccountsComponent } from './accounts/accounts.component';
 import { CreatePopupComponent } from './create-popup/create-popup.component';
 const routes: Routes = [
    {
@@ -40,6 +41,11 @@ const routes: Routes = [
          {
             path :'goal',
             component : GoalComponent
+         },
+
+         {
+            path :'account',
+            component : AccountsComponent
          },
       ]
    }

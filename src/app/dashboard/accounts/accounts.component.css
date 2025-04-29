@@ -1,0 +1,71 @@
+main{ 
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 94vh;
+    width: 100%;
+}
+.transactionContainer{
+
+    width: 2.5fr;
+    height: 100%;
+   
+}
+
+aside{
+   
+    width:1.5fr;
+    height: 100%;
+}
+
+.tabs-container {
+    display: flex;             /* Aligns tabs horizontally */
+    overflow-x: auto;          /* Enables horizontal scrolling */
+    white-space: nowrap;       /* Prevents the tabs from wrapping to the next line */
+    height: 2.5rem;       
+    border-bottom: 2px solid #ccc; /* Optional: Adds a bottom border to the tabs */
+  }
+  
+  .tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 0;            /* Prevents the tab from shrinking */
+    padding: 10px 20px;        /* Adjusts the size of the tabs */
+    margin-inline: 1em;        /* Adds space between tabs */
+    background-color: #f0f0f0; /* Optional: Adds background color to the tabs */
+    border-radius: 5px;        /* Optional: Rounds the corners of the tabs */
+    cursor: pointer;          /* Adds a pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Adds a transition effect */
+  }
+  
+  .tab:hover {
+    background-color: #007bff; /* Changes color on hover */
+    color: white;              /* Changes text color on hover */
+  }
+
+
+  .account-tab {
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    padding: 6px 16px;
+    font-weight: 500;
+    background-color: #fff;
+  }
+  
+  .account-tab:hover {
+    background-color: #6295e2;
+    transform: translateY(-1px);
+  }
+  
+  .active-tab {
+    background-color: #0d6efd;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+  }
+  
+  .rows{
+    padding-inline: 2rem;
+    margin-top: 0;
+}

@@ -12,87 +12,91 @@
     <div class="rows">
       <h3>Ongoing Budget list</h3>
 
-      <div class="card m-3" *ngFor="let items of budgets ; let i = index">
+      <div class="card m-3" *ngFor="let items of budgets; let i = index">
         <div class="card-header" id="headingOne">
           <h5 class="mb-0">
             <button
               class="btn btn-link justify-content-between"
               style="width: 100%;"
               data-toggle="collapse"
-              data-target="#collapseOne"
+              [attr.data-target]="'#collapse' + i"
               aria-expanded="true"
-              aria-controls="collapseOne"
+              [attr.aria-controls]="'collapse' + i"
               (click)="toggleCard(i)"
               (click)="getBudgetProgress(items._id, i)"
             >
-              <div
-                class="card-header d-flex justify-content-between align-items-center " 
-              >
-                <h5 class="card-title">{{items.name}}</h5>
-                <!-- Indicator -->
-                <span class="badge bg-success" id="budget-status"
-                  >Under Budget</span
-                >
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title">{{ items.name }}</h5>
+                <span class="badge bg-success" id="budget-status">Under Budget</span>
               </div>
             </button>
           </h5>
         </div>
-
+      
         <div
-          id="collapseOne"
+          [id]="'collapse' + i"
           class="collapse show"
           [ngClass]="{ 'collapsed': activeCardIndex !== i }"
           aria-labelledby="headingOne"
           data-parent="#accordion"
-          
         >
           <div class="card-body">
-            <p class="card-text"></p>
-
-            <!-- Budget Target and Achieved -->
             <ul class="list-group mb-3">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                <p>{{items.description}}</p>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <p>{{ items.description }}</p>
               </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Alloted Amount:
-                <span>₹{{items.amount}}</span>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Alloted Amount: <span>₹{{ items.amount }}</span>
               </li>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
-                Amount Spent:
-                <span>₹{{items.totalexpense}}</span>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Amount Spent: <span>₹{{ items.totalexpense }}</span>
               </li>
             </ul>
-
-            <!-- Progress Bar with Percentage -->
+      
+            <!-- Progress Bar -->
             <div class="progress mb-3">
               <div
                 class="progress-bar bg-warning"
                 role="progressbar"
                 [ngStyle]="{ width: items.remainingbudgetPercent + '%' }"
-               [attr.aria-valuenow]="items.remainingbudgetPercent"
+                [attr.aria-valuenow]="items.remainingbudgetPercent"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
-                {{items.remainingbudgetPercent}}%
+                {{ items.remainingbudgetPercent }}%
               </div>
             </div>
-
-            <!-- Show the Difference (Remaining or Overspent) -->
+      
+            <!-- Show Remaining Amount -->
             <div class="d-flex justify-content-between align-items-center">
               <p class="text-muted mb-0">
-                Remaining Amount: <strong>{{items.remainingAmount}}</strong>
+                Remaining Amount: <strong>{{ items.remainingAmount }}</strong>
               </p>
+            </div>
+      
+            <!-- Readjust Budget Button -->
+            <div class="d-flex align-items-center gap-2 mt-2">
+              <button class="btn btn-outline-primary me-2" >
+                Readjust Budget
+              </button>
+            
+              <div *ngIf="fieldvisible" class="d-flex align-items-center">
+                <input
+                  type="number"
+                  class="form-control form-control-sm me-2"
+                  style="width: 120px;"
+                 
+                  placeholder="New amount"
+                />
+                <button class="btn btn-success btn-sm" (click)="readjustBudgetAmount(items._id, i)" >
+                  OK
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>

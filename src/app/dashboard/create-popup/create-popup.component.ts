@@ -6,6 +6,7 @@ import { Budget } from '../models/budget';
 import { Goal } from '../models/goal';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CategoryReq , CategoryRes} from '../models/category.model';
+import { AccountRes } from '../models/account.model';
 
 @Component({
   selector: 'app-create-popup',
@@ -18,6 +19,7 @@ export class CreatePopupComponent {
   transationForm = new FormGroup({
     type: new FormControl(''),
     amount: new FormControl(Number()),
+    account : new FormControl(''),
     category: new FormControl(''),
     description: new FormControl(''),
     username: new FormControl(''),
@@ -48,6 +50,7 @@ export class CreatePopupComponent {
 
 
   categories: CategoryRes[] = [];
+  accounts : AccountRes[]=[];
 
   createForm(formType: string) {
     this.activeForm = formType;
@@ -60,6 +63,11 @@ export class CreatePopupComponent {
     this.transaction.GetCategory().subscribe((value) => {
       this.categories = value;
     });
+
+    this.transaction.GetAccountList().subscribe((value)=>{
+      this.accounts = value.accounts;
+      console.log(this.accounts);
+    })
   }
 
   alertVisible: boolean = false;

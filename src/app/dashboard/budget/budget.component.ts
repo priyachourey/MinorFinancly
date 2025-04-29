@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpService } from '../service/htttpservice.service';
 import { BudgetRes } from '../models/budget';
 import { BudgetProgress } from '../models/budgetGoalProgress';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-budget',
@@ -9,6 +10,15 @@ import { BudgetProgress } from '../models/budgetGoalProgress';
   styleUrls: ['./budget.component.css'],
 })
 export class BudgetComponent {
+
+  fieldvisible : boolean = false;
+
+  readjustForm = new FormGroup({
+      amount : new FormControl(Number())
+  })
+
+  
+
   activeCardIndex: number | null = null;
 
   toggleCard(index: number): void {
@@ -25,6 +35,10 @@ export class BudgetComponent {
       this.budgets = value;
       console.log(this.budgets);
     });
+  }
+
+  readjustBudgetAmount(BudgetId: string , index: number){
+
   }
 
   getBudgetProgress(BudgetId: string, index: number) {

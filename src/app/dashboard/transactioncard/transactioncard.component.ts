@@ -9,10 +9,12 @@ import { HttpService } from '../service/htttpservice.service';
 })
 export class TransactioncardComponent implements OnInit {
     @Input() transaction: TransactionRes
+    @Input() isGroupCard: boolean = false;
     public categoryName: String |null = ''
     constructor(private httpService: HttpService){
        this.transaction = {
         _id: null,
+        username : null,
         amount : null,
         description :'',
         category : null,

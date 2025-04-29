@@ -1,0 +1,54 @@
+/* Container settings */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* spacing between cards */
+  }
+  
+  /* Card Styles */
+  .custom-card {
+    width: 100%; /* makes the card responsive */
+    max-width: 18rem;
+    min-height: 12rem;
+    border-radius: 12px; /* rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth hover effect */
+    background-color: #fff; /* white background */
+    margin-block: 15px; /* adds space between rows */
+  }
+  
+  /* Hover effect to make it pop */
+  .custom-card:hover {
+    transform: translateY(-10px); /* lifts the card */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* deeper shadow on hover */
+  }
+  
+  /* Card Body */
+  .card-body {
+    padding: 1.5rem; /* added padding for some breathing space */
+  }
+  
+  /* Card Title and Subtitle */
+  .card-title {
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+  
+  .card-subtitle {
+    font-weight: 400;
+    color: #6c757d; /* muted color for subtitle */
+    font-size: 1rem;
+  }
+  
+  /* Card Text */
+  .card-text {
+    font-size: 0.95rem;
+    color: #495057; /* dark grey text */
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Date styling */
+  .card-subtitle text-muted {
+    font-size: 0.9rem;
+  }
+  

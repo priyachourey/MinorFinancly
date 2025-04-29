@@ -7,12 +7,15 @@
   </div> -->
 
 
-  <div class="card " style="width: 18rem; min-height: 12rem;" >
+  <div class="card custom-card">
     <div class="card-body">
       <h5 class="card-title text-primary">{{this.categoryName}}</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">{{transaction.type}} of {{transaction.amount}}</h6>
+      <div *ngIf="isGroupCard">
+        <h6 class="card-subtitle mb-2 text-success">By: {{ transaction.username }}</h6>
+      </div>
+      <h6 class="card-subtitle mb-2 text-muted">{{transaction.type}} of {{transaction.amount}}</h6>
       <p class="card-text">{{transaction.description}}</p>
       <hr>
-      <h6 class="card-subtitle mb-2 text-body-secondary">createdAt :{{transaction.createdAt| date: 'yyyy-MM-dd'}}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Created at: {{transaction.createdAt | date: 'yyyy-MM-dd'}}</h6>
     </div>
   </div>

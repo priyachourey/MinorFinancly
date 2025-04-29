@@ -8,6 +8,7 @@ export interface Transaction {
 
 export interface TransactionRes{
     _id : String | null
+    username : String| null
     amount ?: Number | null,
     description ?: string | null,
     category ?: string | null,

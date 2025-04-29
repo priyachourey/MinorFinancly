@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreatePopupComponent } from './create-popup/create-popup.component';
 import { TransactioncardComponent } from './transactioncard/transactioncard.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { AccountsComponent } from './accounts/accounts.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     GoalComponent,
     CreatePopupComponent,
     TransactioncardComponent,
-    PieChartComponent
+    PieChartComponent,
+    AccountsComponent,
   ],
   imports: [
     CommonModule,

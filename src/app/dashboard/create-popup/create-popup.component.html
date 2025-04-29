@@ -83,6 +83,15 @@
           />
         </div>
 
+        <div class="mb-3">
+          <label for="Account" class="form-label">Accounts</label>
+          <select class="form-select" id="account" formControlName="account">
+            <option *ngFor="let item of accounts" [value]="item._id">
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
+
         <!-- Category -->
         <div class="mb-3">
           <label for="category" class="form-label">Category</label>
@@ -91,6 +100,8 @@
               {{ item.name }}
             </option>
           </select>
+
+          
 
           <form [formGroup]="CategoryForm"  *ngIf="asideVisible"> 
             <div class="mb-3">
